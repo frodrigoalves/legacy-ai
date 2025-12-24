@@ -7,45 +7,7 @@ import {
   Users, 
   Clock 
 } from "lucide-react";
-
-const features = [
-  {
-    icon: FileKey,
-    title: "Testamentos Inteligentes",
-    description:
-      "Contratos automatizados que executam sua vontade com precisão, sem intermediários ou burocracia.",
-  },
-  {
-    icon: Brain,
-    title: "Avatar IA Perpétuo",
-    description:
-      "Crie um avatar inteligente treinado com sua personalidade e conhecimento para interagir eternamente.",
-  },
-  {
-    icon: Wallet,
-    title: "Recuperação de Cripto",
-    description:
-      "Sistema multi-sig para recuperação segura de criptoativos perdidos ou inacessíveis.",
-  },
-  {
-    icon: Shield,
-    title: "Criptografia Total",
-    description:
-      "Seus dados protegidos com criptografia de ponta e armazenamento descentralizado no IPFS.",
-  },
-  {
-    icon: Users,
-    title: "Gestão de Herdeiros",
-    description:
-      "Defina beneficiários, percentuais e condições de liberação de forma transparente e imutável.",
-  },
-  {
-    icon: Clock,
-    title: "Cápsulas do Tempo",
-    description:
-      "Agende mensagens, arquivos e memórias para serem revelados em datas específicas no futuro.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -67,6 +29,41 @@ const itemVariants = {
 };
 
 export function FeaturesSection() {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: FileKey,
+      title: t("features.smartWills.title"),
+      description: t("features.smartWills.desc"),
+    },
+    {
+      icon: Brain,
+      title: t("features.aiAvatar.title"),
+      description: t("features.aiAvatar.desc"),
+    },
+    {
+      icon: Wallet,
+      title: t("features.cryptoRecovery.title"),
+      description: t("features.cryptoRecovery.desc"),
+    },
+    {
+      icon: Shield,
+      title: t("features.encryption.title"),
+      description: t("features.encryption.desc"),
+    },
+    {
+      icon: Users,
+      title: t("features.beneficiaries.title"),
+      description: t("features.beneficiaries.desc"),
+    },
+    {
+      icon: Clock,
+      title: t("features.timeCapsules.title"),
+      description: t("features.timeCapsules.desc"),
+    },
+  ];
+
   return (
     <section id="features" className="section-spacing relative">
       {/* Background Glow */}
@@ -82,12 +79,11 @@ export function FeaturesSection() {
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="text-display-sm md:text-display-md font-bold mb-4">
-            Recursos{" "}
-            <span className="text-gradient-gold">Revolucionários</span>
+            {t("features.title")}{" "}
+            <span className="text-gradient-gold">{t("features.titleHighlight")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Uma plataforma completa para preservar e transmitir seu legado
-            digital com a segurança da blockchain.
+            {t("features.subtitle")}
           </p>
         </motion.div>
 
@@ -108,7 +104,7 @@ export function FeaturesSection() {
               <div className="glass-card rounded-2xl p-8 h-full hover:border-primary/20 transition-colors duration-300">
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-7 h-7 text-primary" />
+                  <feature.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
 
                 {/* Content */}

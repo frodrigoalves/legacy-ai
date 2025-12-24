@@ -1,34 +1,33 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    title: "Conecte sua Wallet",
-    description:
-      "Conecte sua carteira Web3 (MetaMask, WalletConnect, etc.) para começar a criar seu legado digital de forma segura.",
-  },
-  {
-    number: "02",
-    title: "Configure seu Legado",
-    description:
-      "Defina seus ativos digitais, memórias, mensagens e configure as condições de herança com total controle.",
-  },
-  {
-    number: "03",
-    title: "Adicione Beneficiários",
-    description:
-      "Escolha quem receberá seu legado, defina percentuais e estabeleça condições de liberação personalizadas.",
-  },
-  {
-    number: "04",
-    title: "Eternize na Blockchain",
-    description:
-      "Seu legado é criptografado e armazenado de forma imutável, pronto para execução automática quando necessário.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function HowItWorksSection() {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      number: "01",
+      title: t("howItWorks.step1.title"),
+      description: t("howItWorks.step1.desc"),
+    },
+    {
+      number: "02",
+      title: t("howItWorks.step2.title"),
+      description: t("howItWorks.step2.desc"),
+    },
+    {
+      number: "03",
+      title: t("howItWorks.step3.title"),
+      description: t("howItWorks.step3.desc"),
+    },
+    {
+      number: "04",
+      title: t("howItWorks.step4.title"),
+      description: t("howItWorks.step4.desc"),
+    },
+  ];
+
   return (
     <section id="how-it-works" className="section-spacing relative overflow-hidden">
       {/* Background Elements */}
@@ -44,10 +43,10 @@ export function HowItWorksSection() {
           className="text-center mb-16 md:mb-24"
         >
           <h2 className="text-display-sm md:text-display-md font-bold mb-4">
-            Como <span className="text-gradient-blue">Funciona</span>
+            {t("howItWorks.title")} <span className="text-gradient-blue">{t("howItWorks.titleHighlight")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Em apenas 4 passos simples, seu legado digital estará protegido para sempre.
+            {t("howItWorks.subtitle")}
           </p>
         </motion.div>
 
@@ -82,7 +81,7 @@ export function HowItWorksSection() {
                   {/* Arrow (except last) */}
                   {index < steps.length - 1 && (
                     <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-background border border-border items-center justify-center">
-                      <ArrowRight className="w-3 h-3 text-muted-foreground" />
+                      <ArrowRight className="w-3 h-3 text-muted-foreground" strokeWidth={1.5} />
                     </div>
                   )}
                 </div>

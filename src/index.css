@@ -122,6 +122,50 @@
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   }
+
+  /* Cyberpunk Theme - Neon Electric */
+  .cyberpunk {
+    --background: 260 30% 6%;
+    --foreground: 180 100% 90%;
+    --card: 260 25% 10%;
+    --card-foreground: 180 100% 90%;
+    --popover: 260 20% 12%;
+    --popover-foreground: 180 100% 90%;
+    --primary: 320 100% 60%;
+    --primary-foreground: 260 30% 6%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 260 30% 6%;
+    --muted: 260 15% 25%;
+    --muted-foreground: 180 50% 70%;
+    --accent: 60 100% 50%;
+    --accent-foreground: 260 30% 6%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 280 50% 30%;
+    --input: 280 50% 30%;
+    --ring: 320 100% 60%;
+    --chart-1: 320 100% 60%;
+    --chart-2: 180 100% 50%;
+    --chart-3: 60 100% 50%;
+    --chart-4: 280 100% 70%;
+    --chart-5: 200 100% 60%;
+    --sidebar: 260 25% 10%;
+    --sidebar-foreground: 180 100% 90%;
+    --sidebar-primary: 320 100% 60%;
+    --sidebar-primary-foreground: 260 30% 6%;
+    --sidebar-accent: 180 100% 50%;
+    --sidebar-accent-foreground: 260 30% 6%;
+    --sidebar-border: 280 50% 30%;
+    --sidebar-ring: 320 100% 60%;
+    --shadow-2xs: 0 0 10px 0px hsl(320 100% 60% / 0.1);
+    --shadow-xs: 0 0 15px 0px hsl(320 100% 60% / 0.15);
+    --shadow-sm: 0 0 20px 0px hsl(320 100% 60% / 0.2);
+    --shadow: 0 0 25px 0px hsl(320 100% 60% / 0.25);
+    --shadow-md: 0 0 30px 0px hsl(320 100% 60% / 0.3);
+    --shadow-lg: 0 0 40px 0px hsl(320 100% 60% / 0.35);
+    --shadow-xl: 0 0 50px 0px hsl(320 100% 60% / 0.4);
+    --shadow-2xl: 0 0 60px 0px hsl(320 100% 60% / 0.5);
+  }
 }
 
 @layer base {
@@ -162,8 +206,22 @@
     background-clip: text;
   }
 
+  .cyberpunk .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(320, 100%, 60%) 0%, hsl(280, 100%, 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .text-gradient-blue {
     background: linear-gradient(135deg, hsl(210, 100%, 60%) 0%, hsl(230, 100%, 70%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cyberpunk .text-gradient-blue {
+    background: linear-gradient(135deg, hsl(180, 100%, 50%) 0%, hsl(200, 100%, 60%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
