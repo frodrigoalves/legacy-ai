@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function CTASection() {
+  const { t } = useLanguage();
+
   return (
     <section className="section-spacing-sm relative overflow-hidden">
       <div className="container-tight relative">
@@ -29,32 +32,31 @@ export function CTASection() {
           <div className="relative px-8 py-16 md:px-16 md:py-24 text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-              <Zap className="w-4 h-4 text-primary" />
+              <Zap className="w-4 h-4 text-primary" strokeWidth={1.5} />
               <span className="text-sm font-medium text-primary">
-                Comece gratuitamente
+                {t("cta.badge")}
               </span>
             </div>
 
             {/* Headline */}
             <h2 className="text-display-sm md:text-display-md font-bold mb-6 text-balance">
-              Pronto para eternizar{" "}
-              <span className="text-gradient-gold">seu legado</span>?
+              {t("cta.title")}{" "}
+              <span className="text-gradient-gold">{t("cta.titleHighlight")}</span>?
             </h2>
 
             {/* Description */}
             <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
-              Junte-se a milhares de pessoas que já estão protegendo suas memórias,
-              ativos e conhecimento para as próximas gerações.
+              {t("cta.subtitle")}
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="hero" size="lg" className="group">
-                Criar Conta Grátis
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {t("cta.button.create")}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
               </Button>
               <Button variant="glass" size="lg">
-                Falar com Especialista
+                {t("cta.button.talk")}
               </Button>
             </div>
           </div>

@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroBg from "@/assets/hero-bg.jpg";
 
 export function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-glow">
       {/* Background Image with Overlay */}
@@ -30,9 +33,9 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8"
         >
-          <Sparkles className="w-4 h-4 text-primary" />
+          <Sparkles className="w-4 h-4 text-primary" strokeWidth={1.5} />
           <span className="text-sm text-muted-foreground">
-            Plataforma Web3 de Legados Digitais
+            {t("hero.badge")}
           </span>
         </motion.div>
 
@@ -43,10 +46,10 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-display-lg md:text-display-xl lg:text-display-2xl font-bold mb-6 text-balance"
         >
-          Seu legado,{" "}
-          <span className="text-gradient-gold">eternizado</span>
+          {t("hero.title.line1")}{" "}
+          <span className="text-gradient-gold">{t("hero.title.highlight")}</span>
           <br />
-          na blockchain
+          {t("hero.title.line2")}
         </motion.h1>
 
         {/* Subheadline */}
@@ -56,8 +59,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-balance"
         >
-          Gerencie heranças digitais, crie avatares IA perpétuos e proteja suas
-          memórias com contratos inteligentes descentralizados.
+          {t("hero.subtitle")}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -68,12 +70,12 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button variant="hero" size="lg" className="group">
-            Criar Meu Legado
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            {t("hero.cta.create")}
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
           </Button>
           <Button variant="heroOutline" size="lg">
-            <Shield className="w-5 h-5" />
-            Ver Demo
+            <Shield className="w-5 h-5" strokeWidth={1.5} />
+            {t("hero.cta.demo")}
           </Button>
         </motion.div>
 
@@ -86,15 +88,15 @@ export function HeroSection() {
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-green-500" />
-            <span>Polygon Network</span>
+            <span>{t("hero.trust.polygon")}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-primary" />
-            <span>IPFS Storage</span>
+            <span>{t("hero.trust.ipfs")}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-accent" />
-            <span>OpenZeppelin Certified</span>
+            <span>{t("hero.trust.certified")}</span>
           </div>
         </motion.div>
       </div>

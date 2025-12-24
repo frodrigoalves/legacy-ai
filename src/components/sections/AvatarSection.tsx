@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Sparkles, MessageSquare, Cpu, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function AvatarSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="avatar" className="section-spacing relative overflow-hidden">
       {/* Background */}
@@ -19,43 +22,41 @@ export function AvatarSection() {
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
-              <Sparkles className="w-4 h-4 text-accent" />
+              <Sparkles className="w-4 h-4 text-accent" strokeWidth={1.5} />
               <span className="text-sm text-muted-foreground">
-                Tecnologia de IA Avançada
+                {t("avatar.badge")}
               </span>
             </div>
 
             <h2 className="text-display-sm md:text-display-md font-bold mb-6">
-              Seu <span className="text-gradient-blue">Avatar IA</span> Perpétuo
+              {t("avatar.title")} <span className="text-gradient-blue">{t("avatar.titleHighlight")}</span>
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Crie uma versão digital de si mesmo que pode conversar, compartilhar
-              conhecimento e interagir com seus entes queridos para sempre. Treinado
-              com sua personalidade, memórias e sabedoria.
+              {t("avatar.subtitle")}
             </p>
 
             {/* Features List */}
             <div className="space-y-4 mb-8">
               <FeatureItem
                 icon={MessageSquare}
-                title="Conversas Naturais"
-                description="Diálogos fluidos e naturais baseados em IA generativa"
+                title={t("avatar.feature1.title")}
+                description={t("avatar.feature1.desc")}
               />
               <FeatureItem
                 icon={Cpu}
-                title="Aprendizado Contínuo"
-                description="Seu avatar evolui e melhora com cada interação"
+                title={t("avatar.feature2.title")}
+                description={t("avatar.feature2.desc")}
               />
               <FeatureItem
                 icon={Heart}
-                title="Memórias Preservadas"
-                description="Histórias, valores e conhecimento eternizados"
+                title={t("avatar.feature3.title")}
+                description={t("avatar.feature3.desc")}
               />
             </div>
 
             <Button variant="accent" size="lg">
-              Criar Meu Avatar
+              {t("avatar.cta")}
             </Button>
           </motion.div>
 
@@ -82,10 +83,10 @@ export function AvatarSection() {
                   </div>
                   {/* Orbiting Elements */}
                   <div className="absolute -top-4 -right-4 w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center animate-float">
-                    <Sparkles className="w-5 h-5 text-primary" />
+                    <Sparkles className="w-5 h-5 text-primary" strokeWidth={1.5} />
                   </div>
                   <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: "-2s" }}>
-                    <Cpu className="w-4 h-4 text-accent" />
+                    <Cpu className="w-4 h-4 text-accent" strokeWidth={1.5} />
                   </div>
                 </div>
 
@@ -93,13 +94,13 @@ export function AvatarSection() {
                 <div className="space-y-4">
                   <div className="flex justify-end">
                     <div className="bg-primary/10 rounded-2xl rounded-br-sm px-4 py-3 max-w-[80%]">
-                      <p className="text-sm">Pai, qual era sua música favorita?</p>
+                      <p className="text-sm">{t("avatar.chat.question")}</p>
                     </div>
                   </div>
                   <div className="flex justify-start">
                     <div className="bg-secondary rounded-2xl rounded-bl-sm px-4 py-3 max-w-[80%]">
                       <p className="text-sm text-muted-foreground">
-                        Ah, sempre adorei "Imagine" do John Lennon. Me lembra dos tempos em que sonhávamos com um mundo melhor... 🎵
+                        {t("avatar.chat.answer")}
                       </p>
                     </div>
                   </div>
@@ -108,10 +109,10 @@ export function AvatarSection() {
                 {/* Input Preview */}
                 <div className="mt-6 flex items-center gap-3 bg-background/50 rounded-full px-4 py-3 border border-border">
                   <span className="text-sm text-muted-foreground flex-1">
-                    Digite sua pergunta...
+                    {t("avatar.chat.placeholder")}
                   </span>
                   <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-                    <MessageSquare className="w-4 h-4 text-accent-foreground" />
+                    <MessageSquare className="w-4 h-4 text-accent-foreground" strokeWidth={1.5} />
                   </div>
                 </div>
               </div>
@@ -135,7 +136,7 @@ function FeatureItem({
   return (
     <div className="flex items-start gap-4">
       <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-        <Icon className="w-5 h-5 text-accent" />
+        <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
       </div>
       <div>
         <h4 className="font-medium mb-1">{title}</h4>

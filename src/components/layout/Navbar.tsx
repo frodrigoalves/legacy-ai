@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
+import logoSingulai from "@/assets/logo-singulai.png";
 
 export function Navbar() {
+  const { t } = useLanguage();
+
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -14,9 +20,8 @@ export function Navbar() {
         <nav className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:border-primary/40 transition-colors">
-              <span className="text-xl font-bold text-gradient-gold">S</span>
-              <div className="absolute inset-0 rounded-xl bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden">
+              <img src={logoSingulai} alt="SingulAI" className="w-full h-full object-contain" />
             </div>
             <span className="font-display text-xl font-semibold tracking-tight">
               Singul<span className="text-gradient-gold">AI</span>
@@ -25,19 +30,21 @@ export function Navbar() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <NavLink href="#features">Recursos</NavLink>
-            <NavLink href="#how-it-works">Como Funciona</NavLink>
-            <NavLink href="#legacy">Legado Digital</NavLink>
-            <NavLink href="#avatar">Avatar IA</NavLink>
+            <NavLink href="#features">{t("nav.features")}</NavLink>
+            <NavLink href="#how-it-works">{t("nav.howItWorks")}</NavLink>
+            <NavLink href="#legacy">{t("nav.digitalLegacy")}</NavLink>
+            <NavLink href="#avatar">{t("nav.aiAvatar")}</NavLink>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeSwitcher />
             <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-              Entrar
+              {t("nav.signIn")}
             </Button>
             <Button variant="hero" size="sm">
-              Começar Agora
+              {t("nav.getStarted")}
             </Button>
           </div>
         </nav>
